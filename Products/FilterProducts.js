@@ -28,10 +28,9 @@ const productsString = fs.readFileSync(
         }
         return item
     })
-    // console.log(d)
-    console.log("klknkjnj")
     products_Data=[...products_Data,{
                                     product_id,
+                                    product_name:data[0].product_name,
                                     invalidVariants:data1.map((option,ind)=>(option)).flat()
                                 }]
     }
@@ -39,10 +38,10 @@ const productsString = fs.readFileSync(
     {
         products_Data=[...products_Data,{
                                             product_id,
+                                            product_name:data[0].product_name,
                                             invalidVaraints:entry[1].invalidVariants
                                         }]
     }
-    // console.log(products_Data)
   })
   fs.writeFileSync(
     "invalid_variants.data.json",
